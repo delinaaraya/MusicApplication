@@ -1,0 +1,15 @@
+<p>songcreate works!</p>
+<form [formGroup]="appForm" (ngSubmit)="onSubmit(appForm.value)">
+    <div class="form-group">
+        <label>Song Title</label>
+      <input title="title" type="text" class="form-control" formControlName="title">
+      <label>Artist Id</label>
+      <input title="artist_id" type="text" class="form-control" formControlName="artist_id">
+      <label>Release Year</label>
+      <input title="year" type="text" class="form-control" formControlName="year">
+      <label>Song Runtime</label>
+      <input title="runtime" type="text" class="form-control" formControlName="runtime">
+
+    </div>
+    <button type="submit" class="btn btn-success">Create Song</button>
+</form> <br/>

@@ -1,0 +1,14 @@
+<p>collections works!</p>
+
+<div class="card" *ngFor="let collection of collections">
+    <h1>{{collection.collectionId}}</h1>
+    <p>{{collection.title}}</p>
+    <p>{{collection.songId}}</p>
+
+
+    <button (click)="onDelete(collection.collectionId)">Delete Collection</button>
+
+    <a routerLink="/collection/update/{{collection.collectionId}}">update</a>
+</div>
+
+<a routerLink="/collection/create">create</a>

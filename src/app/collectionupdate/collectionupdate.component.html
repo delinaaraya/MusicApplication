@@ -1,0 +1,21 @@
+<p>collectionupdate works!</p>
+
+<p>collectionId {{ collection.collectionId }}</p>
+<p>title {{ collection.title }}</p>
+<p>songId {{ collection.songId }}</p>
+
+<form [formGroup]="appForm" (ngSubmit)="onSubmit(appForm.value)">
+    <div class="form-group">
+        <label>Collection Title</label>
+      <input title="title" type="text" class="form-control" formControlName="title">
+      <label>Song Id</label>
+      <!-- <input title="song_id" type="text" class="form-control" formControlName="song_id"> -->
+<select title="select" class="form-control" formControlName="song_id">
+    <option class="card" *ngFor="let song of songs" [ngValue]="song.songId">
+        {{song.title}}
+    </option>    
+</select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create Song</button>
+</form> <br/>
