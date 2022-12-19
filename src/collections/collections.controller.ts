@@ -16,13 +16,14 @@ import { OkPacket } from 'mysql';
 export const readCollections: RequestHandler = async (req: Request, res: Response) => {
     try{
         let collections;
-        let collectionsId = parseInt(req.query.collectionId as string);
-
-        console.log('collectionId. collectionId');
-        if (Number.isNaN(collectionsId)) {
+        let collectionId = parseInt(req.params.collectionId as string);
+        //let collectionsId = parseInt(req.query.collectionId as string);
+        console.log('params', req.params);
+        console.log('collectionId. collectionId', collectionId);
+        if (Number.isNaN(collectionId)) {
             collections = await CollectionDao.readCollections();
         }else{
-            collections = await CollectionDao.readCollectionsByCollectionId(collectionsId);
+            collections = await CollectionDao.readCollectionsByCollectionId(collectionId);
         }
         //await readTracks(collections, res);
 
@@ -36,6 +37,30 @@ export const readCollections: RequestHandler = async (req: Request, res: Respons
         });
     }
 };
+
+// export const readCollection: RequestHandler = async (req: Request, res: Response) => {
+//     try{
+//         let collections;
+//         let collectionsId = parseInt(req.query.collectionId as string);
+
+//         console.log('collectionId. collectionId');
+//         if (Number.isNaN(collectionsId)) {
+//             collections = await CollectionDao.readCollections();
+//         }else{
+//             collections = await CollectionDao.readCollectionsByCollectionId(collectionsId);
+//         }
+//         //await readTracks(collections, res);
+
+//         res.status(200).json(
+//             collections
+//         );
+//     } catch (error) {
+//         console.error('[collections.controller][readcollections][Error] ', error);
+//         res.status(500).json({
+//             message: 'There was an error when fetching collections'
+//         });
+//     }
+// };
 
 /**
  * This is a function that gets creates new collections in the database

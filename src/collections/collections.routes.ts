@@ -7,6 +7,10 @@ route('/collections').
 get(CollectionsController.readCollections);
 
 router.
+route('/collection/:collectionId').
+get(CollectionsController.readCollections);
+
+router.
 route('/collections').
 post(CollectionsController.createCollection);
 
@@ -17,5 +21,6 @@ put(CollectionsController.updateCollection);
 router.
 route('/collections/:collectionId').
 delete(CollectionsController.deleteCollection);
+
 
 export default router;
